@@ -47,7 +47,7 @@ jobs:
       - name: Build and push docker image
         run: | 
           echo $PAT | docker login ghcr.io -u cyriltavian --password-stdin
-          docker build --build-arg APP_VERSION="$APP_VERSION" -t $CONTAINER_COMMIT_IMAGE -t $CONTAINER_LATEST_IMAGE
+          docker build --build-arg APP_VERSION="$APP_VERSION" -t $CONTAINER_COMMIT_IMAGE -t $CONTAINER_LATEST_IMAGE .
           docker push $CONTAINER_COMMIT_IMAGE
           docker push $CONTAINER_LATEST_IMAGE
         env:
